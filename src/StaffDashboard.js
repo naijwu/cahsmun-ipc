@@ -138,7 +138,7 @@ const StaffDashboard = (props) => {
             globeandmail: 0,
             theonion: 0,
             xinhua: 0,
-        }
+        };
 
         let statsPublished = {
             aljazeera: 0,
@@ -151,20 +151,20 @@ const StaffDashboard = (props) => {
             globeandmail: 0,
             theonion: 0,
             xinhua: 0,
-        }
+        };
 
         // add to published
         for (let i = 0; i < publishedArticles.length; i++) {
             displayPublished.push(
                 <div className='item-wrap'>
-                    <div className='item'>
+                    <Link to={`/agency/${publishedArticles[i].author}/article/${publishedArticles[i]._id}`} className='item'>
                         <div className='subtitle'>
                             Title
                         </div>
                         <div className='title'>
                             {publishedArticles[i].title}
                         </div>
-                    </div>
+                    </Link>
                     <div className='subitem'>
                         <div className='author'>
                             {prettySwitchboard[publishedArticles[i].author]} - {getTime(publishedArticles[i].lastUpdated)}
@@ -191,21 +191,21 @@ const StaffDashboard = (props) => {
                 <div className='empty'>
                     No Articles
                 </div>
-            )
+            );
         }
 
         // add to unpublished
         for (let i = 0; i < unpublishedArticles.length; i++) {
             displayUnpublished.push(
                 <div className='item-wrap'>
-                    <div className='item'>
+                    <Link to={`/agency/${unpublishedArticles[i].author}/preview/${unpublishedArticles[i]._id}`} className='item'>
                         <div className='subtitle'>
                             Title
                         </div>
                         <div className='title'>
                             {unpublishedArticles[i].title}
                         </div>
-                    </div>
+                    </Link>
                     <div className='subitem'>
                         <div className='author'>
                             {prettySwitchboard[unpublishedArticles[i].author]} - {getTime(unpublishedArticles[i].lastUpdated)}
@@ -221,7 +221,7 @@ const StaffDashboard = (props) => {
                     </div>
                 </div>
             );
-            
+
             statsUnpublished[unpublishedArticles[i].author] = statsUnpublished[unpublishedArticles[i].author] + 1;
         }
         if(unpublishedArticles.length === 0) {
@@ -229,7 +229,7 @@ const StaffDashboard = (props) => {
                 <div className='empty'>
                     No Articles
                 </div>
-            )
+            );
         }
 
 
@@ -242,6 +242,7 @@ const StaffDashboard = (props) => {
     }, [unpublishedArticles, publishedArticles]);
 
     useEffect(() => {
+
         let return_val = [];
         const append = [
             <div className='detail-divider'>
@@ -263,19 +264,17 @@ const StaffDashboard = (props) => {
                    {unpublishedArticles.length}
                </div>
            </div>
-        ]
+        ];
 
 
         for (let i = 0; i < validAgencies.length; i++) {
             return_val.push(
-                <div className='detail'>
+                <div key={validAgencies[i]} className='detail'>
                     <div className='key'>
                         {prettySwitchboard[validAgencies[i]]}
                     </div>
                     <div className='value'>
-                        {publishedStats[validAgencies[i]]}
-                        /
-                        {publishedStats[validAgencies[i]] + unpublishedStats[validAgencies[i]]}
+                        {publishedStats[validAgencies[i]]}/{unpublishedStats[validAgencies[i]] + publishedStats[validAgencies[i]]}
                     </div>
                 </div>
             );
@@ -286,7 +285,7 @@ const StaffDashboard = (props) => {
 
         setDisplayStats(return_val);
 
-    } , [publishedArticles, unpublishedArticles])
+    }, [displayUnpublished, displayPublished])
 
     function handleLogout() {
         updateCurrentUser('');

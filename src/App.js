@@ -6,6 +6,7 @@ import Main from './Main';
 import Login from './Login';
 import Agency from './Agency';
 import Article from './Article';
+import Preview from './Preview';
 import DelegateDashboard from './DelegateDashboard';
 import Write from './Write';
 import StaffDashboard from './StaffDashboard';
@@ -52,6 +53,7 @@ function App() {
         <Route exact path='/login' component={Login} />
         <Route exact path='/agency/:agency' component={Agency} />
         <Route exact path='/agency/:agency/article/:article_id' component={Article} />
+        <AuthRoute exact path='/agency/:agency/preview/:article_id' component={Preview} />
         <AuthRoute exact path='/delegate' component={DelegateDashboard} />
         <AuthRoute exact path='/delegate/write' component={Write} />
         <AuthStaffRoute exact path='/staff' component={StaffDashboard} />

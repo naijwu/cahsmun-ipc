@@ -48,7 +48,7 @@ const Write = (props) => {
         setLoading(false);
     }
 
-    return (user && (user.name != 'Staff')) && (
+    return (user && (user.name !== 'Staff')) && (
         <div className='write'>
             <div className='top'>
                 <div className='name'>
@@ -84,7 +84,7 @@ const Write = (props) => {
                 </div>
                 <div className='notification'>
                     To maximize authorial features, a text editor with markdown formatting is provided 
-                    (<a target='_blank' href='https://www.markdownguide.org/basic-syntax/'>more information</a>). 
+                    (<a target='_blank' rel='noreferrer' href='https://www.markdownguide.org/basic-syntax/'>more information</a>). 
                     Markdown can be ignored without consequence if it is of no use. To prevent accidental 
                     loss of work, you are encouraged to write the article using a program such as Google Docs, 
                     and have it copy and pasted to this page afterwards.

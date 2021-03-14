@@ -80,19 +80,19 @@ const DelegateDashboard = (props) => {
 
             displayPublished.push(
                 <div className='item-wrap'>
-                    <div className='item'>
+                    <Link to={`/agency/${publishedArticles[i].author}/article/${publishedArticles[i]._id}`} className='item'>
                         <div className='subtitle'>
                             Title
                         </div>
                         <div className='title'>
                             {publishedArticles[i].title}
                         </div>
-                    </div>
+                    </Link>
                     <div className='subitem'>
                         <div className='author'>
                             {getTime(publishedArticles[i].lastUpdated)}
                         </div>
-                        <div className='action'>
+                        <div className='action published'>
                             Published
                         </div>
                     </div>
@@ -105,19 +105,19 @@ const DelegateDashboard = (props) => {
 
             displayUnpublished.push(
                 <div className='item-wrap'>
-                    <div className='item'>
+                    <Link to={`/agency/${unpublishedArticles[i].author}/preview/${unpublishedArticles[i]._id}`} className='item'>
                         <div className='subtitle'>
                             Title
                         </div>
                         <div className='title'>
                             {unpublishedArticles[i].title}
                         </div>
-                    </div>
+                    </Link>
                     <div className='subitem'>
                         <div className='author'>
                             {getTime(unpublishedArticles[i].lastUpdated)}
                         </div>
-                        <div className='action'>
+                        <div className='action pending'>
                             Pending Approval
                         </div>
                     </div>

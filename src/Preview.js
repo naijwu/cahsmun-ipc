@@ -11,13 +11,12 @@ import ReactMarkdown from 'react-markdown';
 
 import { API_URL, MONTHS, prettySwitchboard, validAgencies } from './constants';
 
-const Article = (props) => {
+const Preview = (props) => {
     const params = useParams();
 
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [content, setContent] = useState('');
-    const [enabled, setEnabled] = useState('');
 
     function getTime(lastUpdated) {
         let date = new Date(lastUpdated);
@@ -48,13 +47,12 @@ const Article = (props) => {
             setTitle(article.title);
             setDate(getTime(article.lastUpdated));
             setContent(article.content);
-            setEnabled(article.enabled);
         }).catch((error) => {
             console.log(error);
         });
     }, [params.article_id]);
 
-    return (validAgencies.includes(params.agency) && (enabled === 'true')) && (
+    return (validAgencies.includes(params.agency)) && (
         <div className='focus'>
             <div className='top'>
                 <div className='name'>
@@ -80,4 +78,4 @@ const Article = (props) => {
     )
 }
 
-export default Article;
+export default Preview;
