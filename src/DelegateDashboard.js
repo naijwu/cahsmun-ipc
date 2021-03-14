@@ -88,7 +88,7 @@ const DelegateDashboard = (props) => {
                             {publishedArticles[i].title}
                         </div>
                     </Link>
-                    <div className='subitem'>
+                    <div className='subitem pt-15'>
                         <div className='author'>
                             {getTime(publishedArticles[i].lastUpdated)}
                         </div>
@@ -113,7 +113,7 @@ const DelegateDashboard = (props) => {
                             {unpublishedArticles[i].title}
                         </div>
                     </Link>
-                    <div className='subitem'>
+                    <div className='subitem pt-15'>
                         <div className='author'>
                             {getTime(unpublishedArticles[i].lastUpdated)}
                         </div>
