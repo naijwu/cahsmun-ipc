@@ -942,8 +942,21 @@
     max-width:100%;
   }
   
-  .bod .articles .article {
+  .bod .articles .article,
+  .smaller .articles .article {
     padding-top:50px;
+  }
+
+  /* Recent Articles */
+
+  .smaller {
+    padding:0 20px;
+    box-sizing: border-box;
+  }
+  
+  .smaller .articles {
+    max-width:100%;
+    box-sizing: border-box;
   }
 
 

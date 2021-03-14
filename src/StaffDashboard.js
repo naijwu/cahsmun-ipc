@@ -285,7 +285,7 @@ const StaffDashboard = (props) => {
 
         setDisplayStats(return_val);
 
-    }, [displayUnpublished, displayPublished])
+    }, [displayUnpublished, displayPublished]);
 
     function handleLogout() {
         updateCurrentUser('');
