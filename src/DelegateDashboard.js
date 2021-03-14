@@ -65,7 +65,7 @@ const DelegateDashboard = (props) => {
 
         hours = hours.toString().padStart(2, '0');
         let minutes = date.getMinutes().toString().padStart(2, '0');
-        let day = date.getDay().toString().padStart(2, '0');
+        let day = date.getDate().toString().padStart(2, '0');
 
         return `${hours}:${minutes} ${suffix}, ${day} ${MONTHS[date.getMonth()]} ${date.getFullYear()}`;
     }
