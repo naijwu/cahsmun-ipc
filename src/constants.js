@@ -5,14 +5,14 @@ const prettySwitchboard = {
     'cnn': 'CNN',
     'euronews':'Euronews',
     'foxnews':'Fox News',
-    'nyt': 'New York Times',
+    'newyorktimes': 'The New York Times',
     'russiatoday': 'Russia Today',
     'globeandmail': 'The Globe and Mail',
     'theonion': 'The Onion',
     'xinhua': 'Xinhua News Agency'
 }
 
-const validAgencies = ['aljazeera', 'bbc', 'cnn', 'euronews', 'foxnews', 'nyt', 'russiatoday', 'globeandmail', 'theonion', 'xinhua'];
+const validAgencies = ['aljazeera', 'bbc', 'cnn', 'euronews', 'foxnews', 'newyorktimes', 'russiatoday', 'globeandmail', 'theonion', 'xinhua'];
 
 const DAYS = [
     "Sunday",

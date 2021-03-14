@@ -32,7 +32,7 @@ const Main = (props) => {
                     <Link to="/agency/cnn" onMouseOver={e=>onHover('cnn')} onMouseOut={e=>onUnhover('cnn')}>Cable News Network</Link>
                     <Link to="/agency/euronews" onMouseOver={e=>onHover('euronews')} onMouseOut={e=>onUnhover('euronews')}>Euronews</Link>
                     <Link to="/agency/foxnews" onMouseOver={e=>onHover('foxnews')} onMouseOut={e=>onUnhover('foxnews')}>Fox News</Link>
-                    <Link to="/agency/nyt" onMouseOver={e=>onHover('nyt')} onMouseOut={e=>onUnhover('nyt')}>New York Times</Link>
+                    <Link to="/agency/newyorktimes" onMouseOver={e=>onHover('newyorktimes')} onMouseOut={e=>onUnhover('newyorktimes')}>New York Times</Link>
                     <Link to="/agency/russiatoday" onMouseOver={e=>onHover('russiatoday')} onMouseOut={e=>onUnhover('russiatoday')}>Russia Today</Link>
                     <Link to="/agency/globeandmail" onMouseOver={e=>onHover('globeandmail')} onMouseOut={e=>onUnhover('globeandmail')}>The Globe and Mail</Link>
                     <Link to="/agency/theonion" onMouseOver={e=>onHover('theonion')} onMouseOut={e=>onUnhover('theonion')}>The Onion</Link>
