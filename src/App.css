@@ -297,9 +297,17 @@
 /* Single Article Styles */
 
 .focus .solo {
-  padding:var(--pad-vertical) 0;
+  padding:var(--pad-vertical) 0 var(--pad-horizontal) 0;
   width:var(--width-focus);
   margin:0 auto;
+}
+
+.focus .solo .reminder {
+  text-align:center;
+  font-weight:500;
+  padding:20px 0;
+  font-size:18px;
+  color:#bf00b5;
 }
 
 .focus .solo h1.the-actual-h1-not-the-md-one {
@@ -328,6 +336,19 @@
   font-size:18px;
   line-height:180%;
   padding-top:10px;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  border:none !important;
+}
+
+.wmde-markdown hr {
+  border-top: 1px solid #EEE !important;
 }
 
 
@@ -799,7 +820,9 @@
 .article .contents p,
 .article .contents ul,
 .article .contents ol,
-.article .contents blockquote {
+.article .contents blockquote,
+.article .contents ul li,
+.article .contents ol li {
   font-size:18px;
   font-weight:400;
   padding:0;
@@ -807,6 +830,11 @@
   display:inline;
   padding-right:5px;
   color:black;
+}
+.article .contents hr,
+.article .contents img,
+.article .contents a {
+  display:none;
 }
 
 

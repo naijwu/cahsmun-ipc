@@ -7,7 +7,7 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-import ReactMarkdown from 'react-markdown';
+import MDEditor from '@uiw/react-md-editor';
 
 import { API_URL, MONTHS, prettySwitchboard, validAgencies } from './constants';
 
@@ -63,15 +63,16 @@ const Preview = (props) => {
                 </div> 
             </div>
             <div className='solo'>
+                <div className='reminder'>
+                    This article is a PREVIEW. Only you and the Dais can view it.
+                </div>
                 <h1 className='the-actual-h1-not-the-md-one'>{title}</h1>
                 <h2 className='and-the-actual-h2-not-the-md-one'>{date}</h2>
                 <h3>
                     <Link to={`/agency/${params.agency}`}>{prettySwitchboard[params.agency]}</Link>
                 </h3>
                 <div className='content-render'>
-                    <ReactMarkdown>
-                        {content}
-                    </ReactMarkdown>
+                    <MDEditor.Markdown source={content} />
                 </div>
             </div>
         </div>

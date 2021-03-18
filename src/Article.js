@@ -7,9 +7,9 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-import ReactMarkdown from 'react-markdown';
 
 import { API_URL, MONTHS, prettySwitchboard, validAgencies } from './constants';
+import MDEditor from '@uiw/react-md-editor';
 
 const Article = (props) => {
     const params = useParams();
@@ -71,9 +71,7 @@ const Article = (props) => {
                     <Link to={`/agency/${params.agency}`}>{prettySwitchboard[params.agency]}</Link>
                 </h3>
                 <div className='content-render'>
-                    <ReactMarkdown>
-                        {content}
-                    </ReactMarkdown>
+                    <MDEditor.Markdown source={content} />
                 </div>
             </div>
         </div>
