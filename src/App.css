@@ -293,6 +293,13 @@
 }
 
 
+.wmde-markdown p {
+  font-size: 1.2rem;
+  line-height: 180%;
+  margin-bottom:24px;
+}
+
+
 
 /* Single Article Styles */
 
