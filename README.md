@@ -1,3 +1,7 @@
+# IPC for CAHSMUN 2021
+
+Live version can be found at [ipc.cahsmun.org](https://ipc.cahsmun.org). Live version hosted on Firebase. Backend is NodeJS + MongoDB running on Heroku. Backend code is on another repo (cahsmun-ipc-backend)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
