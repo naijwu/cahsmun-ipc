@@ -12,6 +12,8 @@ import ReactMarkdown from 'react-markdown';
 import { useAuthContext } from './authentication/AuthContext';
 import { API_URL, MONTHS, prettySwitchboard, validAgencies } from './constants';
 
+import { ArticlesDB } from './articles';
+
 const Agency = (props) => {
 
     const params = useParams();
@@ -26,25 +28,19 @@ const Agency = (props) => {
     useEffect(() => {
         if(params.agency === 'all') {
 
-            axios.get(`${API_URL}/articles`).then((response) => {
-                let articles = response.data;
-        
-                setArticles(articles);
-    
-            }).catch((error) => {
-                console.log(error);
-            });
+            setArticles(ArticlesDB.sort((a,b) => (a["lastUpdated"]["$date"] < b["lastUpdated"]["$date"]) ? 1 : ((b["lastUpdated"]["$date"] < a["lastUpdated"]["$date"]) ? -1 : 0)));
 
         } else {
 
-            axios.get(`${API_URL}/articles/${params.agency}`).then((response) => {
-                let articles = response.data;
-        
-                setArticles(articles);
-    
-            }).catch((error) => {
-                console.log(error);
-            });
+            let filteredArticles = [];
+
+            for (let i = 0; i < ArticlesDB.length; i++) {
+                if (ArticlesDB[i]['author'] === params.agency) {
+                    filteredArticles.push(ArticlesDB[i]);
+                }
+            }
+            
+            setArticles(filteredArticles);
         }
 
     }, []);
@@ -76,24 +72,24 @@ const Agency = (props) => {
         let totalEnabled = 0;
 
         for (let i = 0; i < articles.length; i++ ) {
-            if(articles[i].enabled === 'true') {
+            if(articles[i]["enabled"] === 'true') {
                 display.push(
                     <div className='article'>
-                        <h2>{articles[i].title}</h2>
+                        <h2>{articles[i]["title"]}</h2>
                         <h3>
                             {(params.agency === 'all') ? (
                                 <>
-                                {prettySwitchboard[articles[i].author]} -&nbsp;
+                                {prettySwitchboard[articles[i]["author"]]} -&nbsp;
                                 </>
                             ) : ''}
-                            {getTime(articles[i].lastUpdated)}
+                            {getTime(articles[i]["lastUpdated"]["$date"])}
                         </h3>
                         <div className='contents'>
                             <ReactMarkdown>
-                                {articles[i].content}
+                                {articles[i]["content"]}
                             </ReactMarkdown>
                         </div>
-                        <Link to={`/agency/${articles[i].author}/article/${articles[i]._id}`}>Read More</Link>
+                        <Link to={`/agency/${articles[i]["author"]}/article/${articles[i]["_id"]["$oid"]}`}>Read More</Link>
                     </div>
                 );
                 totalEnabled += 1;

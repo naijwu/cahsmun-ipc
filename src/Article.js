@@ -11,6 +11,8 @@ import {
 import { API_URL, MONTHS, prettySwitchboard, validAgencies } from './constants';
 import MDEditor from '@uiw/react-md-editor';
 
+import { ArticlesDB } from './articles';
+
 const Article = (props) => {
     const params = useParams();
 
@@ -41,17 +43,20 @@ const Article = (props) => {
     }
 
     useEffect(() => {
-        axios.get(`${API_URL}/article/${params.article_id}`)
-        .then((response) => {
-            let article = response.data;
+        let theArticle = {};
 
-            setTitle(article.title);
-            setDate(getTime(article.lastUpdated));
-            setContent(article.content);
-            setEnabled(article.enabled);
-        }).catch((error) => {
-            console.log(error);
-        });
+        for(let i = 0; i < ArticlesDB.length; i++) {
+            if(ArticlesDB[i]["_id"]["$oid"] === params.article_id) {
+                
+                setTitle(ArticlesDB[i]['title']);
+                setDate(getTime(ArticlesDB[i]['lastUpdated']));
+                setContent(ArticlesDB[i]['content']);
+                setEnabled(ArticlesDB[i]['enabled']);
+
+                break;
+            }
+        }
+        
     }, [params.article_id]);
 
     return (validAgencies.includes(params.agency) && (enabled === 'true')) && (

@@ -34,7 +34,7 @@
   background-position:center;
   background-size: cover;
 }
-
+/* 
 .home.aljazeera {
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.8), 
@@ -94,7 +94,7 @@
     rgba(0, 0, 0, 0.8), 
     rgba(0, 0, 0, 0.8)
   ), url('./fun/a6ff9871-a06c-4da7-96d8-8c75f57b1ab6.gif');
-}
+} */
 
 .home .left,
 .home .right {
