@@ -49,7 +49,7 @@ const Article = (props) => {
             if(ArticlesDB[i]["_id"]["$oid"] === params.article_id) {
                 
                 setTitle(ArticlesDB[i]['title']);
-                setDate(getTime(ArticlesDB[i]['lastUpdated']));
+                setDate(getTime(ArticlesDB[i]['lastUpdated']['$date']));
                 setContent(ArticlesDB[i]['content']);
                 setEnabled(ArticlesDB[i]['enabled']);
 
