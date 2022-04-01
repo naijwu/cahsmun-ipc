@@ -41,7 +41,7 @@ function App() {
           ) : ( 
             <Redirect to='/login' />
           )
-        }
+        } 
       />
     );
   }
