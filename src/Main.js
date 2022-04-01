@@ -57,7 +57,7 @@ const Main = (props) => {
                 </div>
                 <div className='conference'>
                     <img draggable={false} src={LogoDecal} />
-                    CAHSMUN 2021
+                    CAHSMUN 2022
                 </div>
             </div>
         </div>
