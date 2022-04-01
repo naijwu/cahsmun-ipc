@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext, useState, useEffect } from 'react';
 import { createContext } from 'react';
 import { decodeToken, destroySession, getTokenFromSession, storeSession } from './AuthService';
