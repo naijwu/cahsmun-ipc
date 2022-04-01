@@ -39,6 +39,8 @@ const MONTHS = [
     "December",
 ]
 
-const API_URL = false ? 'http://localhost:8080/ipc' : 'https://cahsmun-ipc-server.herokuapp.com/ipc';
+const dev = false;
+
+const API_URL = dev ? 'http://localhost:8080/ipc' : 'https://cahsmun-ipc-server.herokuapp.com/ipc';
 
 export { API_URL, MONTHS, DAYS, prettySwitchboard, validAgencies };
