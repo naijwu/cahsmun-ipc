@@ -39,6 +39,6 @@ const MONTHS = [
     "December",
 ]
 
-const API_URL = false ? 'http://localhost:8080/ipc' : 'https://cahsmun-ipc-server.herokuapp.com/ipc';
+const API_URL = false ? 'http://localhost:8080/ipc' : 'https://api.opengavel.app/ipc';
 
 export { API_URL, MONTHS, DAYS, prettySwitchboard, validAgencies };
